@@ -1,0 +1,15 @@
+box: dgoradia-atlas/chefdk-builder@1.2.5
+build:
+  steps:
+    - bundle-install:
+        without: development
+    - script:
+        name: echo ruby information
+        code: |
+          echo "ruby version $(ruby --version) running"
+          echo "from location $(which ruby)"
+          echo -p "gem list: $(gem list)"
+    - script:
+        name: build
+        code: |
+          bundle exec rake build
