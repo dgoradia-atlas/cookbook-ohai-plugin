@@ -6,9 +6,9 @@
 
 reload_ohai = false
 
-unless ohai.plugin_path.include?(node['ohai']['plugin_path'])
+unless Ohai::Config[:plugin_path].include?(node['ohai']['plugin_path'])
 	#Ohai::Config[:plugin_path] << node['ohai']['plugin_path']
-	ohai.plugin_path = [node['ohai']['plugin_path'], ohai.plugin_path].flatten.compact
+	Ohai::Config[:plugin_path] = [node['ohai']['plugin_path'], Ohai::Config[:plugin_path]].flatten.compact
 	reload_ohai ||= true
 end
 Chef::Log.info("Ohai plugins will be at: #{node['ohai']['plugin_path']}")
@@ -20,7 +20,6 @@ Chef::Log.info("Ohai plugins: #{node['ohai']['plugins']}")
 node['ohai']['plugins'].each_pair do |source_cookbook, path|
 
 	rd = remote_directory node['ohai']['plugin_path'] do
-		cookbook source_cookbook
 		source path
 		mode '0755'
 		recursive true
@@ -38,8 +37,8 @@ resource = ohai 'custom_plugins' do
 end
 
 # Reload only if new plugins or node['ohai']['plugin_path'] doesn't exist
-# if reload_ohai #||
+if reload_ohai #||
 	#!(::IO.read(Chef::Config[:config_file]) =~ /Ohai::Config\[:plugin_path\]\s*<<\s*["']#{node['ohai']['plugin_path']}["']/)
 
-resource.run_action(:reload) if reload_ohai
-# end
+	resource.run_action(:reload)
+end

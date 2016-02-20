@@ -4,7 +4,7 @@ maintainer_email ''
 license 'all_rights'
 description 'Installs/Configures ohai-plugin'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '1.0.1'
+version '1.0.0'
 
 %w( centos ubuntu windows ).each do |os|
 	supports os
