@@ -1,5 +1,4 @@
-[![wercker status](https://app.wercker.com/status/6c074b34b4b272919d394431d0d52de0/s "wercker status")](https://app.wercker.com/project/bykey/6c074b34b4b272919d394431d0d52de0)
-
+[![wercker status](https://app.wercker.com/status/19c1fb9bdaec9cc62a2e25c3a828e9a7/s "wercker status")](https://app.wercker.com/project/bykey/19c1fb9bdaec9cc62a2e25c3a828e9a7)
 Ohai Plugin
 ===========
 Installs Ohai plugins to be used be nodes.
