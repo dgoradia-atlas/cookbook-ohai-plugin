@@ -7,3 +7,8 @@ Usage
 -----
 Include this recipe in your cookbook and place your plugins in the
 `files/default/plugins` directory.
+
+Add the attribute, replacing `cookbook_name` with the name of your own cookbook.
+```
+default['ohai']['plugins']['cookbook_name'] = 'plugins'
+```
