@@ -1,4 +1,4 @@
-box: dgoradia-atlas/chefdk-builder@1.2.5
+box: dgoradia-atlas/chefdk-builder@1.2.6
 build:
   steps:
     - bundle-install:
